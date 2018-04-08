@@ -37,35 +37,3 @@ const configComponentWithValidPropsForTable = (propsToValid) => {
         }
     }
 };
-
-const propsToValidMonthTable = [
-    {
-        keyNew:'month',
-        keyOld:'date',
-        toValid: (valueOld) => {
-            return new Date(valueOld).getMonth();
-        }
-    },
-    {
-        keyOld:'amount'
-    }
-];
-
-let getMountTableComponentWithValid = configComponentWithValidPropsForTable(propsToValidMonthTable);
-let MountTableComponentWithValid = getMountTableComponentWithValid(MonthTable);
-
-const propsToValidYearTable = [
-    {
-        keyNew:'year',
-        keyOld:'date',
-        toValid: (valueOld) => {
-            return new Date(valueOld).getYear();
-        }
-    },
-    {
-        keyOld:'amount'
-    }
-];
-
-let getYearTableComponentWithValid = configComponentWithValidPropsForTable(propsToValidYearTable);
-let YearTableComponentWithValid = getYearTableComponentWithValid(YearTable);
