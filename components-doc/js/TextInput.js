@@ -9,3 +9,12 @@ const TextInput = props => {
     </div>
   )
 };
+
+RadioGroup.propTypes = {
+    onChange: PropTypes.func,
+
+    label: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    type: PropTypes.string,
+    value: PropTypes.string
+};

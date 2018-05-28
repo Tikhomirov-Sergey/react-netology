@@ -9,3 +9,21 @@ const DateInput = props => {
     </div>
   )
 };
+
+DateInput.propTypes = {
+    onChange: PropTypes.func,
+
+    label: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    value: (props, propName, componentName) => {
+        if (!/^[0-9]{1,4}-[0-9]{1,2}-[0-9]{1,2}$/.test(props[propName])) {
+            return new Error(`Invalid prop ${propName} supplied to ${componentName}. Expecting something like 'YYYY-MM-DD'. Validation failed.`);
+        }
+    }
+};
+
+const now = new Date().toISOString().split('T')[0];
+
+DateInput.defaultProps = {
+    value: now
+};
