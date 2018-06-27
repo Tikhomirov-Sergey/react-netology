@@ -30,11 +30,18 @@ const configComponentWithAggregationProp = (column) => {
                           return  value[column] === key;
                        });
 
-                       for(let i = 1; i < items.length; i++) {
-                           items[i][column] = "";
-                       }
+                       let value = 0;
 
-                       newList = newList.concat(items);
+                       items.forEach((item) => {
+                           value+= item.amount;
+                       });
+
+                       let newRow = {};
+
+                       newRow[column] = key;
+                       newRow['amount'] = value;
+
+                       newList = newList.concat(newRow);
                    }
                 });
 
